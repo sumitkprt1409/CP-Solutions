@@ -34,7 +34,7 @@ public:
         }
 
         int num = dist.size();
-        if(num == 0){
+        if(num < 2){
             return {-1, -1};
         }
 
