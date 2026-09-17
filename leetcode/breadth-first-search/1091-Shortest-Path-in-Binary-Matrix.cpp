@@ -11,7 +11,7 @@ public:
         queue<pair<int, int>> q;
         vector<vector<int>> dist(n, vector<int> (m, -1));
         q.push({0, 0});
-        dist[0][0] = 0;
+        dist[0][0] = 1;
 
         while(!q.empty()){
             int x = q.front().first;
@@ -45,7 +45,7 @@ public:
             return -1;
         }
 
-        return dist[n-1][m-1] + 1;
+        return dist[n-1][m-1];
 
     }
 };
