@@ -10,7 +10,7 @@ public:
 
         long long target = total - x;
 
-        // We need to keep a subarray with sum = target.
+      
         if (target == 0) {
             return n;
         }
