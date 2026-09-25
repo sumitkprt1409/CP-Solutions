@@ -21,23 +21,36 @@ public:
 
         // return Helper(0, nums, dp);
 
-        vector<int> dp(n, 0);
-        dp[n-1] = 0;
+        // vector<int> dp(n, 0);
+        // dp[n-1] = 0;
+        int prev1 = 0, prev2 = 0;
 
         for(int i=n-1; i>=0; i--){
-            int take = nums[i];
-            if(i+2 < n){
-                take += dp[i+2];
-            }
-            int not_take;
-            if(i+1 < n){
-                not_take = dp[i+1];
-            } 
+            int take = nums[i] + prev2;
+           
+            int not_take = prev1;
+            
 
-            dp[i] = max(take, not_take);
+            int curr = max(take, not_take);
+            prev2 = prev1;
+            prev1 = curr;
+
+
+
+
+            // int take = nums[i];
+            // if(i+2 < n){
+            //     take += dp[i+2];
+            // }
+            // int not_take;
+            // if(i+1 < n){
+            //     not_take = dp[i+1];
+            // } 
+
+            // dp[i] = max(take, not_take);
         } 
 
-        return dp[0];
+        return prev1;;
 
     }
 };
