@@ -12,6 +12,8 @@ public:
 
         //take (
         Helper(n-1, m, curr+'(');
+
+        //take )
         if(m > n){
             Helper(n, m-1, curr+')');
         }
