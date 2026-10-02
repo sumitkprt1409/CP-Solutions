@@ -41,30 +41,54 @@ public:
         // //0 --> false
         // return Helper(n-1, nums, k/2, 0, dp);
 
-        vector<vector<bool>> dp(n, vector<bool> (k/2+3, false));
-        for(int i=0; i<n; i++){
-            dp[i][0] = true;
-        }
+        // vector<vector<bool>> dp(n, vector<bool> (k/2+3, false));
+        // for(int i=0; i<n; i++){
+        //     dp[i][0] = true;
+        // }
 
+        // if(nums[0] <= k/2){
+        //     dp[0][nums[0]] = true;
+        // }
+        
+
+        // for(int i=1; i<n; i++){
+        //     for(int j=1; j<=k/2; j++){
+        //         bool nottake = dp[i-1][j];
+        //         bool take = false;
+        //         if(nums[i] <= j){
+        //             take = dp[i-1][j-nums[i]];
+        //         }
+
+        //         dp[i][j] = take | nottake;
+        //     }
+        // }
+
+
+        // return dp[n-1][k/2];
+
+
+        vector<bool> prev(k+1, 0), curr(k+1, 0);
+        prev[0] = curr[0] = 1;
         if(nums[0] <= k/2){
-            dp[0][nums[0]] = true;
+            prev[nums[0]] = true;
         }
         
 
         for(int i=1; i<n; i++){
             for(int j=1; j<=k/2; j++){
-                bool nottake = dp[i-1][j];
+                bool nottake = prev[j];
                 bool take = false;
                 if(nums[i] <= j){
-                    take = dp[i-1][j-nums[i]];
+                    take = prev[j-nums[i]];
                 }
 
-                dp[i][j] = take | nottake;
+                curr[j] = take | nottake;
             }
+            prev = curr;
         }
 
 
-        return dp[n-1][k/2];
+        return prev[k/2];
 
 
 
