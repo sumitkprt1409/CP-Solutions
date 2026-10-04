@@ -23,8 +23,10 @@ public:
     }
 
     int maxProfit(int k, vector<int>& prices) {
+
         int n = prices.size();
-        vector<vector<vector<int>>> dp(n+1, vector<vector<int>> (2, vector<int> (k+1, 0)));
+        vector<vector<int>> prev(2, vector<int> (k+1, 0));
+        vector<vector<int>> curr(2, vector<int> (k+1, 0));
         // return Helper(0, prices, 1, 0, k, dp);
 
         for(int idx=n-1; idx>=0; idx--){
@@ -33,18 +35,51 @@ public:
                     int p1 = 0, p2 = 0;
 
                     if(buy == 1){
-                        p1 = max(dp[idx+1][0][no] - prices[idx], dp[idx+1][1][no]);
+                        p1 = max(prev[0][no] - prices[idx], prev[1][no]);
                     }
                     else{
-                        p2 = max(dp[idx+1][1][no+1] + prices[idx], dp[idx+1][0][no]);
+                        p2 = max(prev[1][no+1] + prices[idx], prev[0][no]);
                     }
 
-                    dp[idx][buy][no] = max(p1, p2);
+                    curr[buy][no] = max(p1, p2);
                 }
+                prev = curr;
             }
         }
 
-        return dp[0][1][0];
+        return prev[1][0];
+
+
+
+
+
+
+
+
+
+
+        // int n = prices.size();
+        // vector<vector<vector<int>>> dp(n+1, vector<vector<int>> (2, vector<int> (k+1, 0)));
+        // // return Helper(0, prices, 1, 0, k, dp);
+
+        // for(int idx=n-1; idx>=0; idx--){
+        //     for(int buy=0; buy<2; buy++){
+        //         for(int no=0; no<k; no++){
+        //             int p1 = 0, p2 = 0;
+
+        //             if(buy == 1){
+        //                 p1 = max(dp[idx+1][0][no] - prices[idx], dp[idx+1][1][no]);
+        //             }
+        //             else{
+        //                 p2 = max(dp[idx+1][1][no+1] + prices[idx], dp[idx+1][0][no]);
+        //             }
+
+        //             dp[idx][buy][no] = max(p1, p2);
+        //         }
+        //     }
+        // }
+
+        // return dp[0][1][0];
 
 
 
