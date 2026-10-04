@@ -1,26 +1,26 @@
 class Solution {
 public:
-    int Helper(int idx, vector<int> prices, int buy, int no, vector<vector<vector<int>>> &dp){
-        int n = prices.size();
+    // int Helper(int idx, vector<int> prices, int buy, int no, vector<vector<vector<int>>> &dp){
+    //     int n = prices.size();
 
-        if(no >= 2 || idx == n){
-            return 0;
-        }
+    //     if(no >= 2 || idx == n){
+    //         return 0;
+    //     }
 
-        if(dp[idx][buy][no] != -1){
-            return dp[idx][buy][no];
-        }
+    //     if(dp[idx][buy][no] != -1){
+    //         return dp[idx][buy][no];
+    //     }
 
-        int p1 = 0, p2 = 0;
-        if(buy){
-            p1 = max(Helper(idx+1, prices, 0, no, dp) - prices[idx], Helper(idx+1, prices, 1, no, dp));
-        }
-        else{
-            p2 = max(Helper(idx+1, prices, 1, no+1, dp) + prices[idx], Helper(idx+1, prices, 0, no, dp));
-        }
+    //     int p1 = 0, p2 = 0;
+    //     if(buy){
+    //         p1 = max(Helper(idx+1, prices, 0, no, dp) - prices[idx], Helper(idx+1, prices, 1, no, dp));
+    //     }
+    //     else{
+    //         p2 = max(Helper(idx+1, prices, 1, no+1, dp) + prices[idx], Helper(idx+1, prices, 0, no, dp));
+    //     }
 
-        return dp[idx][buy][no] = max(p1, p2);
-    }
+    //     return dp[idx][buy][no] = max(p1, p2);
+    // }
 
     int maxProfit(vector<int>& prices) {
 
