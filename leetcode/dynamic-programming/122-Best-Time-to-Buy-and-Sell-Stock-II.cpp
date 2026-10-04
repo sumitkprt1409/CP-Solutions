@@ -25,7 +25,7 @@ public:
     int maxProfit(vector<int>& prices) {
         int n = prices.size();
 
-        vector<int> prev(n+1, 0), curr(n+1, 0);
+        vector<int> prev(2, 0), curr(2, 0);
 
         for(int i=n-1; i>=0; i--){
             for(int buy=0; buy<2; buy++){
