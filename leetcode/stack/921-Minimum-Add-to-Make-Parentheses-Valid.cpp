@@ -19,22 +19,6 @@ public:
             }
         }
         ans += abs(cnt);
-        // int cnt2 = 0;
-
-        // for(int i=n-1; i>=0; i--){
-        //     if(s[i] == ')'){
-        //         cnt++;
-        //     }
-        //     else{
-        //         cnt--;
-        //     }
-
-        //     if(cnt < 0){
-        //         ans += abs(cnt);
-        //         cnt = 0;
-        //     }
-        // }
-
         return ans;
     }
 };
