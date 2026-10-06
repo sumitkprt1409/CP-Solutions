@@ -1,20 +1,40 @@
 class Solution {
 public:
     int minAddToMakeValid(string s) {
-        int num = 0;
+        int n = s.size();
+        int cnt = 0;
         int ans = 0;
-        for (char ch : s) {
-            if(ch == '('){
-                num++;
-            }
-            else if(num > 0){
-                num--;
+
+        for(int i=0; i<n; i++){
+            if(s[i] == '('){
+                cnt++;
             }
             else{
-                ans++;
+                cnt--;
+            }
+
+            if(cnt < 0){
+                ans += abs(cnt);
+                cnt = 0;
             }
         }
+        ans += abs(cnt);
+        // int cnt2 = 0;
 
-        return num + ans;
+        // for(int i=n-1; i>=0; i--){
+        //     if(s[i] == ')'){
+        //         cnt++;
+        //     }
+        //     else{
+        //         cnt--;
+        //     }
+
+        //     if(cnt < 0){
+        //         ans += abs(cnt);
+        //         cnt = 0;
+        //     }
+        // }
+
+        return ans;
     }
 };
