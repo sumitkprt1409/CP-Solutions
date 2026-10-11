@@ -8,7 +8,7 @@ Codeforces, LeetCode, CSES, CodeChef &amp; GeeksforGeeks solutions, organized cl
 
 Synced automatically by SolveBase.
 
-**Total solved: 174**
+**Total solved: 175**
 
 ## Codeforces
 
@@ -56,14 +56,14 @@ Solutions organized by primary topic folder.
 
 Solutions from the CSES Problem Set, organized by section.
 
-**Solved: 14**
+**Solved: 15**
 
 | Section | Solved |
 | --- | --- |
 | [dynamic-programming](./cses/dynamic-programming) | 1 |
 | [graph-algorithms](./cses/graph-algorithms) | 1 |
 | [introductory-problems](./cses/introductory-problems) | 3 |
-| [sorting-and-searching](./cses/sorting-and-searching) | 3 |
+| [sorting-and-searching](./cses/sorting-and-searching) | 4 |
 | [tree-algorithms](./cses/tree-algorithms) | 6 |
 
 
