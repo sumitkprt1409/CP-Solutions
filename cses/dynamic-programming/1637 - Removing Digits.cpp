@@ -53,10 +53,34 @@ int Helper(int n, int cnt, vector<int> &dp){
 void solve(){
     int n;
     cin>>n;
-    vector<int> dp(n+1, -1);
-    int ans = Helper(n, 0, dp);
+    vector<int> dp(n+1, INT_MAX);
+    dp[0] = 0;
 
-    cout<<ans<<endl;
+    for(int i=1; i<=n; i++){
+        int num = i;
+        while(num > 0){
+            int digit = num%10;
+            if(digit != 0){
+                dp[i] = min(dp[i], dp[i-digit] + 1);
+            }
+            num = num/10;
+        }
+    }
+
+    cout<<dp[n]<<endl;
+
+
+
+
+
+
+
+
+
+
+    // int ans = Helper(n, 0, dp);
+
+    //cout<<ans<<endl;
 }
 
 int main(){
