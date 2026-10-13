@@ -13,13 +13,8 @@ public:
         long long ans = 0;
         int i=n-1;
         int cnt = 0;
-        int take = 0;
-        if(n%2 == 0){
-            take = n/2;
-        }
-        else{
-            take = n/2;
-        }
+        int take = n/2;
+       
         
         for(int i=take; i<n; i++){
             ans += 1LL*nums[i]*nums[i];
