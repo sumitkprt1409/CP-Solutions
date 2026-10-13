@@ -36,14 +36,29 @@ void solve() {
         cin >> arr[i];
     }
 
-    vector<int> dp(x + 1, -1);
+    vector<int> dp(x + 1, INT_MAX);
 
-    int mini = Helper(arr, x, 0, dp);
+    dp[0] = 0;
 
-    if (mini == INT_MAX) {
+    for (int sum = 1; sum <= x; sum++) {
+        for (int i = 0; i < n; i++) {
+            if (sum >= arr[i] && dp[sum - arr[i]] != INT_MAX) {
+                dp[sum] = min(dp[sum], 1 + dp[sum - arr[i]]);
+            }
+        }
+    }
+
+
+
+
+
+
+    // int mini = Helper(arr, x, 0, dp);
+
+    if (dp[x] == INT_MAX) {
         cout << -1 << '\n';
     } else {
-        cout << mini << '\n';
+        cout << dp[x] << '\n';
     }
 }
 
